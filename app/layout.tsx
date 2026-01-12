@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: 'Yango Play - Watch. Listen. Play. All in One',
   description: 'Огромная библиотека контента — фильмы, сериалы, музыка, игры и многое другое',
   keywords: 'yango play, streaming, movies, series, music, games',
+  icons: {
+    icon: '/favicon.svg',
+  },
   openGraph: {
     title: 'Yango Play - Watch. Listen. Play. All in One',
     description: 'Огромная библиотека контента — фильмы, сериалы, музыка, игры и многое другое',
