@@ -27,28 +27,28 @@ export default function YangoLanding() {
     {
       title: 'أهل الكهف',
       subtitle: 'Ahl El Kahf - Official Trailer',
-      thumbnail: 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=800&h=450&fit=crop&q=80',
+      thumbnail: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&h=450&fit=crop&q=80',
       videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ', // Замени на свое видео
       duration: '2:34'
     },
     {
       title: 'السجادة الأفاضال',
       subtitle: 'Comedy Series Trailer',
-      thumbnail: 'https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=800&h=450&fit=crop&q=80',
+      thumbnail: 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=800&h=450&fit=crop&q=80',
       videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
       duration: '1:45'
     },
     {
       title: 'فيما يرا يعني!؟',
       subtitle: 'Family Comedy',
-      thumbnail: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&h=450&fit=crop&q=80',
+      thumbnail: 'https://images.unsplash.com/photo-1511895426328-dc8714191300?w=800&h=450&fit=crop&q=80',
       videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
       duration: '3:12'
     },
     {
       title: 'Exclusive Content',
       subtitle: 'Only on Yango Play',
-      thumbnail: 'https://images.unsplash.com/photo-1524712245354-2c4e5e7121c0?w=800&h=450&fit=crop&q=80',
+      thumbnail: 'https://images.unsplash.com/photo-1594908900066-3f47337549d8?w=800&h=450&fit=crop&q=80',
       videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
       duration: '2:05'
     }
@@ -58,37 +58,37 @@ export default function YangoLanding() {
     {
       title: 'أفلام Yango',
       subtitle: 'السجادة الأفاضال',
-      image: 'https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=500&h=750&fit=crop&q=80',
+      image: 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=500&h=750&fit=crop&q=80',
       color: 'from-teal-700 to-green-800'
     },
     {
       title: 'أهل الكهف',
       subtitle: 'Ahl El Kahf',
-      image: 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=500&h=750&fit=crop&q=80',
+      image: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=500&h=750&fit=crop&q=80',
       color: 'from-orange-800 to-red-900'
     },
     {
       title: 'فيما يرا يعني!؟',
       subtitle: 'يُعرَض الآن',
-      image: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=500&h=750&fit=crop&q=80',
+      image: 'https://images.unsplash.com/photo-1511895426328-dc8714191300?w=500&h=750&fit=crop&q=80',
       color: 'from-green-700 to-olive-800'
     },
     {
       title: 'مسلسلات Yango',
       subtitle: 'Exclusive Series',
-      image: 'https://images.unsplash.com/photo-1524712245354-2c4e5e7121c0?w=500&h=750&fit=crop&q=80',
+      image: 'https://images.unsplash.com/photo-1594908900066-3f47337549d8?w=500&h=750&fit=crop&q=80',
       color: 'from-blue-800 to-indigo-900'
     },
     {
       title: 'أفلام عربية',
       subtitle: 'Arabic Cinema',
-      image: 'https://images.unsplash.com/photo-1505686994434-e3cc5abf1330?w=500&h=750&fit=crop&q=80',
+      image: 'https://images.unsplash.com/photo-1594909122845-11baa439b7bf?w=500&h=750&fit=crop&q=80',
       color: 'from-purple-800 to-pink-900'
     },
     {
       title: 'مسلسلات درامية',
       subtitle: 'Drama Series',
-      image: 'https://images.unsplash.com/photo-1512070679279-8988d32161be?w=500&h=750&fit=crop&q=80',
+      image: 'https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=500&h=750&fit=crop&q=80',
       color: 'from-red-800 to-rose-900'
     }
   ]
@@ -227,7 +227,7 @@ export default function YangoLanding() {
           
           {/* Scrollable Container */}
           <div className="relative">
-            <div className="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide">
+            <div className="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide overscroll-x-contain">
               {movies.map((movie, index) => (
                 <div
                   key={index}
@@ -271,7 +271,7 @@ export default function YangoLanding() {
           
           {/* Video Cards with Horizontal Scroll */}
           <div className="relative">
-            <div className="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide">
+            <div className="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide overscroll-x-contain">
               {videos.map((video, index) => (
                 <div
                   key={index}
@@ -380,6 +380,10 @@ export default function YangoLanding() {
         .scrollbar-hide {
           -ms-overflow-style: none;
           scrollbar-width: none;
+          -webkit-overflow-scrolling: touch;
+        }
+        .overscroll-x-contain {
+          overscroll-behavior-x: contain;
         }
       `}</style>
     </div>
