@@ -8,15 +8,15 @@ export default function YangoLanding() {
 
   const content = {
     en: {
-      title: ['Unlimited', 'Entertainment'],
-      description: 'New albums weekly, crystal-clear sound, and smart AI picks on Yango Play.',
-      cta: 'Watch on Yango Play',
+      title: ['Picked for you.', 'Ready to watch.'],
+      description: 'Smart recommendations — just press play.',
+      cta: 'Watch Yango Play',
       featured: 'Featured Content',
       trailers: 'Watch Trailers'
     },
     ar: {
-      title: ['ترفيه لا ينتهي', ''],
-      description: 'ألبومات جديدة كل اسبوع، صوت واضح وعالي، توصيات ذكية مدعومة بالذكاء الاصطناعي، والمزيد على Yango Play',
+      title: ['مُختار لك.', 'جاهز للمشاهدة.'],
+      description: 'توصيات ذكية — فقط اضغط play',
       cta: 'شاهد على Yango Play',
       featured: 'المحتوى المميز',
       trailers: 'شاهد الإعلانات'
@@ -27,28 +27,28 @@ export default function YangoLanding() {
     {
       title: 'أهل الكهف',
       subtitle: 'Ahl El Kahf - Official Trailer',
-      thumbnail: 'https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=800&h=450&fit=crop&q=80',
+      thumbnail: 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=800&h=450&fit=crop&q=80',
       videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ', // Замени на свое видео
       duration: '2:34'
     },
     {
       title: 'السجادة الأفاضال',
       subtitle: 'Comedy Series Trailer',
-      thumbnail: 'https://images.unsplash.com/photo-1574267432644-f2b45c3510ad?w=800&h=450&fit=crop&q=80',
+      thumbnail: 'https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=800&h=450&fit=crop&q=80',
       videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
       duration: '1:45'
     },
     {
       title: 'فيما يرا يعني!؟',
       subtitle: 'Family Comedy',
-      thumbnail: 'https://images.unsplash.com/photo-1511895426328-dc8714191300?w=800&h=450&fit=crop&q=80',
+      thumbnail: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&h=450&fit=crop&q=80',
       videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
       duration: '3:12'
     },
     {
       title: 'Exclusive Content',
       subtitle: 'Only on Yango Play',
-      thumbnail: 'https://images.unsplash.com/photo-1594908900066-3f47337549d8?w=800&h=450&fit=crop&q=80',
+      thumbnail: 'https://images.unsplash.com/photo-1524712245354-2c4e5e7121c0?w=800&h=450&fit=crop&q=80',
       videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
       duration: '2:05'
     }
@@ -58,37 +58,37 @@ export default function YangoLanding() {
     {
       title: 'أفلام Yango',
       subtitle: 'السجادة الأفاضال',
-      image: 'https://images.unsplash.com/photo-1574267432644-f2b45c3510ad?w=500&h=750&fit=crop&q=80',
+      image: 'https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=500&h=750&fit=crop&q=80',
       color: 'from-teal-700 to-green-800'
     },
     {
       title: 'أهل الكهف',
       subtitle: 'Ahl El Kahf',
-      image: 'https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=500&h=750&fit=crop&q=80',
+      image: 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=500&h=750&fit=crop&q=80',
       color: 'from-orange-800 to-red-900'
     },
     {
       title: 'فيما يرا يعني!؟',
       subtitle: 'يُعرَض الآن',
-      image: 'https://images.unsplash.com/photo-1511895426328-dc8714191300?w=500&h=750&fit=crop&q=80',
+      image: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=500&h=750&fit=crop&q=80',
       color: 'from-green-700 to-olive-800'
     },
     {
       title: 'مسلسلات Yango',
       subtitle: 'Exclusive Series',
-      image: 'https://images.unsplash.com/photo-1594908900066-3f47337549d8?w=500&h=750&fit=crop&q=80',
+      image: 'https://images.unsplash.com/photo-1524712245354-2c4e5e7121c0?w=500&h=750&fit=crop&q=80',
       color: 'from-blue-800 to-indigo-900'
     },
     {
       title: 'أفلام عربية',
       subtitle: 'Arabic Cinema',
-      image: 'https://images.unsplash.com/photo-1594909122845-11baa439b7bf?w=500&h=750&fit=crop&q=80',
+      image: 'https://images.unsplash.com/photo-1505686994434-e3cc5abf1330?w=500&h=750&fit=crop&q=80',
       color: 'from-purple-800 to-pink-900'
     },
     {
       title: 'مسلسلات درامية',
       subtitle: 'Drama Series',
-      image: 'https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=500&h=750&fit=crop&q=80',
+      image: 'https://images.unsplash.com/photo-1512070679279-8988d32161be?w=500&h=750&fit=crop&q=80',
       color: 'from-red-800 to-rose-900'
     }
   ]
@@ -208,12 +208,12 @@ export default function YangoLanding() {
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-purple-600/20 rounded-full blur-3xl -z-10 scale-150"></div>
               </div>
 
-              {/* Tags */}
+              {/* Genre Tags */}
               <div className="mt-8 flex flex-wrap gap-3 justify-center lg:justify-start">
-                <div className="px-5 py-2.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium hover:bg-white/20 transition-colors cursor-pointer">Radiohead</div>
-                <div className="px-5 py-2.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium hover:bg-white/20 transition-colors cursor-pointer">Arabic Pop</div>
-                <div className="px-5 py-2.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium hover:bg-white/20 transition-colors cursor-pointer">Foreign Rap</div>
-                <div className="px-5 py-2.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium hover:bg-white/20 transition-colors cursor-pointer">The Weeknd</div>
+                <div className="px-5 py-2.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium hover:bg-white/20 transition-colors cursor-pointer">🎭 Drama</div>
+                <div className="px-5 py-2.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium hover:bg-white/20 transition-colors cursor-pointer">😂 Comedy</div>
+                <div className="px-5 py-2.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium hover:bg-white/20 transition-colors cursor-pointer">🎬 Arabic Cinema</div>
+                <div className="px-5 py-2.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium hover:bg-white/20 transition-colors cursor-pointer">⭐ Exclusive</div>
               </div>
             </div>
           </div>
