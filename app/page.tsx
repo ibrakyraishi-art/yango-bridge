@@ -8,13 +8,13 @@ export default function YangoLanding() {
   const content = {
     en: {
       title: ['Unlimited', 'Entertainment'],
-      description: 'New movies and series weekly, crystal-clear quality, and smart AI picks on Yango Play.',
+      description: 'New albums weekly, crystal-clear sound, and smart AI picks on Yango Play.',
       cta: 'Watch on Yango Play',
       featured: 'Featured Content'
     },
     ar: {
-      title: ['ترفيه', 'لا محدود'],
-      description: 'أفلام ومسلسلات جديدة أسبوعياً، جودة عالية، وتوصيات ذكية بالذكاء الاصطناعي على Yango Play.',
+      title: ['ترفيه لا ينتهي', ''],
+      description: 'ألبومات جديدة كل اسبوع، صوت واضح وعالي، توصيات ذكية مدعومة بالذكاء الاصطناعي، والمزيد على Yango Play',
       cta: 'شاهد على Yango Play',
       featured: 'المحتوى المميز'
     }
@@ -98,18 +98,17 @@ export default function YangoLanding() {
       {/* Hero Section */}
       <main className="px-6 md:px-12 py-12 md:py-16">
         <div className="max-w-7xl mx-auto">
-          <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${isRTL ? 'lg:grid-flow-dense' : ''}`}>
+          <div className={`grid grid-cols-1 lg:grid-cols-2 gap-16 xl:gap-20 items-center ${isRTL ? 'lg:grid-flow-dense' : ''}`}>
             {/* Text Content */}
-            <div className={`space-y-6 md:space-y-8 ${isRTL ? 'lg:col-start-2 text-right' : 'text-left'}`}>
-              <h2 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-[1.05] tracking-tighter" style={{ fontFamily: 'Arial Black, Impact, sans-serif' }}>
-                {t.title[0]}.
-                <br />
-                <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <div className={`space-y-6 md:space-y-8 max-w-xl ${isRTL ? 'lg:col-start-2 text-right lg:ml-auto' : 'text-left lg:mr-auto'}`}>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.05] tracking-tighter" style={{ fontFamily: 'system-ui, -apple-system, Arial Black, sans-serif' }}>
+                <span className="block">{t.title[0]}.</span>
+                <span className="block bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                   {t.title[1]}.
                 </span>
               </h2>
 
-              <p className="text-base md:text-lg leading-relaxed text-white/70 max-w-xl">
+              <p className="text-sm md:text-base lg:text-lg leading-relaxed text-white/70">
                 {t.description}
               </p>
 
