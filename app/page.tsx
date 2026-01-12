@@ -24,14 +24,20 @@ export default function YangoLanding() {
     {
       title: 'أفلام Yango',
       subtitle: 'السجادة الأفاضال',
-      image: 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=500&h=750&fit=crop&q=80',
-      color: 'from-yellow-800 to-orange-900'
+      image: 'https://images.unsplash.com/photo-1574267432644-f2b45c3510ad?w=500&h=750&fit=crop&q=80',
+      color: 'from-teal-700 to-green-800'
     },
     {
       title: 'أهل الكهف',
       subtitle: 'Ahl El Kahf',
-      image: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=500&h=750&fit=crop&q=80',
-      color: 'from-amber-700 to-orange-800'
+      image: 'https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=500&h=750&fit=crop&q=80',
+      color: 'from-orange-800 to-red-900'
+    },
+    {
+      title: 'فيما يرا يعني!؟',
+      subtitle: 'يُعرَض الآن',
+      image: 'https://images.unsplash.com/photo-1511895426328-dc8714191300?w=500&h=750&fit=crop&q=80',
+      color: 'from-green-700 to-olive-800'
     },
     {
       title: 'مسلسلات Yango',
@@ -66,7 +72,7 @@ export default function YangoLanding() {
       <header className="py-5 px-6 md:px-12">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div>
-            <h1 className="text-xl md:text-2xl font-black tracking-tight">YANGO PLAY</h1>
+            <h1 className="text-xl md:text-2xl font-black tracking-tighter" style={{ fontFamily: 'Arial Black, Impact, sans-serif' }}>YANGO PLAY</h1>
           </div>
           <div className="flex items-center gap-3">
             <button
@@ -95,7 +101,7 @@ export default function YangoLanding() {
           <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${isRTL ? 'lg:grid-flow-dense' : ''}`}>
             {/* Text Content */}
             <div className={`space-y-6 md:space-y-8 ${isRTL ? 'lg:col-start-2 text-right' : 'text-left'}`}>
-              <h2 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-[1.1] tracking-tight">
+              <h2 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-[1.05] tracking-tighter" style={{ fontFamily: 'Arial Black, Impact, sans-serif' }}>
                 {t.title[0]}.
                 <br />
                 <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
@@ -184,7 +190,7 @@ export default function YangoLanding() {
       {/* Horizontal Scrolling Gallery */}
       <section className="py-12 md:py-16 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
-          <h3 className="text-2xl md:text-3xl font-bold mb-8">{t.featured}</h3>
+          <h3 className="text-2xl md:text-3xl font-black mb-8" style={{ fontFamily: 'Arial Black, Impact, sans-serif' }}>{t.featured}</h3>
           
           {/* Scrollable Container */}
           <div className="relative">
