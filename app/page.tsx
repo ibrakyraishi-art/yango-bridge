@@ -7,60 +7,68 @@ export default function YangoLanding() {
 
   const content = {
     en: {
+      nav: {
+        home: 'Home',
+        promoCode: 'Promo code'
+      },
       title: ['Watch. Listen. Play.', 'All in One'],
       description: 'A massive library is waiting — full seasons, exclusive films, anime, music, and more',
-      cta: 'Download Yango Play',
-      ctaSecondary: 'Open in App',
-      features: {
-        movies: {
-          title: 'Movies & Series',
-          description: 'Thousands of movies and series in HD quality'
-        }
+      cta: 'Get started',
+      feature: {
+        title: 'Movies & Series',
+        description: 'Thousands of movies and series in HD quality'
       },
       benefits: {
-        anywhere: {
-          title: 'Watch anywhere',
-          description: 'On mobile, tablet, laptop, Smart TV, and more'
-        },
-        offline: {
-          title: 'Download & watch offline',
-          description: 'Save your favorites and watch them anytime'
-        },
-        family: {
-          title: 'Family sharing',
-          description: 'Connect up to 20 devices for your family'
-        }
+        title: 'More benefits',
+        items: [
+          {
+            title: 'Invite your family members',
+            description: 'Connect up to 20 devices between you and 3 more members'
+          },
+          {
+            title: 'Watch any way you want',
+            description: 'On mobile, tablet, laptop, Smart TV, PlayStation, Android TV, Apple TV, and more'
+          },
+          {
+            title: 'Download and enjoy offline',
+            description: 'Watch your favorite movies and series and listen to music at any time'
+          }
+        ]
       }
     },
     ar: {
+      nav: {
+        home: 'الرئيسية',
+        promoCode: 'رمز ترويجي'
+      },
       title: ['شاهد. استمع. العب.', 'الكل في واحد'],
       description: 'مكتبة ضخمة في انتظارك — مواسم كاملة، أفلام حصرية، أنمي، موسيقى والمزيد',
-      cta: 'تحميل Yango Play',
-      ctaSecondary: 'فتح التطبيق',
-      features: {
-        movies: {
-          title: 'أفلام ومسلسلات',
-          description: 'آلاف الأفلام والمسلسلات بجودة عالية'
-        }
+      cta: 'ابدأ الآن',
+      feature: {
+        title: 'أفلام ومسلسلات',
+        description: 'آلاف الأفلام والمسلسلات بجودة عالية'
       },
       benefits: {
-        anywhere: {
-          title: 'شاهد في أي مكان',
-          description: 'على الهاتف، الجهاز اللوحي، الكمبيوتر المحمول، التلفزيون الذكي والمزيد'
-        },
-        offline: {
-          title: 'حمّل وشاهد بدون إنترنت',
-          description: 'احفظ المفضلة لديك وشاهدها في أي وقت'
-        },
-        family: {
-          title: 'مشاركة عائلية',
-          description: 'قم بتوصيل ما يصل إلى 20 جهازًا لعائلتك'
-        }
+        title: 'المزيد من المزايا',
+        items: [
+          {
+            title: 'قم بدعوة أفراد عائلتك',
+            description: 'قم بتوصيل ما يصل إلى 20 جهازًا بينك وبين 3 أعضاء آخرين'
+          },
+          {
+            title: 'شاهد بالطريقة التي تريدها',
+            description: 'على الهاتف المحمول والجهاز اللوحي والكمبيوتر المحمول والتلفزيون الذكي وPlayStation وAndroid TV وApple TV والمزيد'
+          },
+          {
+            title: 'قم بالتحميل واستمتع دون اتصال',
+            description: 'شاهد أفلامك ومسلسلاتك المفضلة واستمع إلى الموسيقى في أي وقت'
+          }
+        ]
       }
     }
   }
 
-  const handleDownload = () => {
+  const handleGetStarted = () => {
     window.location.href = 'https://play.yango.com'
   }
 
@@ -69,58 +77,47 @@ export default function YangoLanding() {
 
   return (
     <div className={`min-h-screen bg-black text-white ${isRTL ? 'rtl' : 'ltr'}`}>
-      {/* Animated Background */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-600/30 rounded-full blur-3xl animate-blob"></div>
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-pink-600/30 rounded-full blur-3xl animate-blob animation-delay-2000"></div>
-        <div className="absolute -bottom-32 left-1/3 w-96 h-96 bg-blue-600/30 rounded-full blur-3xl animate-blob animation-delay-4000"></div>
-      </div>
-
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-black/50 border-b border-white/10">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
-            {/* Logo */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-black border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            {/* Logo - Simple Text like Yango Play */}
             <div className="flex-shrink-0">
-              <div className="flex items-center space-x-2">
-                <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
-                  <span className="text-2xl">▶</span>
-                </div>
-                <h1 className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                  YANGO PLAY
-                </h1>
-              </div>
+              <h1 className="text-xl font-bold tracking-wide">YANGO PLAY</h1>
             </div>
 
-            {/* Right side */}
-            <div className="flex items-center space-x-6">
-              {/* Language Switcher - Modern */}
-              <div className="relative flex items-center bg-white/5 backdrop-blur-lg rounded-2xl p-1 border border-white/10">
+            {/* Navigation */}
+            <nav className="hidden md:flex items-center space-x-8">
+              <a href="#" className="text-sm text-white hover:text-gray-300 transition-colors border-b-2 border-purple-500 pb-5">
+                {t.nav.home}
+              </a>
+              <a href="#" className="text-sm text-gray-400 hover:text-white transition-colors">
+                {t.nav.promoCode}
+              </a>
+            </nav>
+
+            {/* Language Switcher */}
+            <div className="flex items-center space-x-4">
+              <div className="flex items-center bg-white/5 rounded-full p-0.5">
                 <button
                   onClick={() => setLang('ar')}
-                  className={`relative px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
                     lang === 'ar'
-                      ? 'text-white'
+                      ? 'bg-white text-black'
                       : 'text-gray-400 hover:text-white'
                   }`}
                 >
-                  {lang === 'ar' && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl"></div>
-                  )}
-                  <span className="relative z-10">العربية</span>
+                  العربية
                 </button>
                 <button
                   onClick={() => setLang('en')}
-                  className={`relative px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
                     lang === 'en'
-                      ? 'text-white'
+                      ? 'bg-white text-black'
                       : 'text-gray-400 hover:text-white'
                   }`}
                 >
-                  {lang === 'en' && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl"></div>
-                  )}
-                  <span className="relative z-10">English</span>
+                  En
                 </button>
               </div>
             </div>
@@ -129,70 +126,54 @@ export default function YangoLanding() {
       </header>
 
       {/* Hero Section */}
-      <main className="relative pt-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-32">
-          <div className="max-w-5xl mx-auto text-center space-y-10">
-            {/* Title */}
-            <div className="space-y-4 animate-fade-in">
-              <h2 className="text-6xl sm:text-7xl md:text-8xl font-black leading-tight tracking-tight">
-                <span className="block">{t.title[0]}</span>
-                <span className="block bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent animate-gradient">
+      <main className="pt-16">
+        <div className="relative min-h-[85vh] flex items-center">
+          {/* Subtle animated background */}
+          <div className="absolute inset-0 overflow-hidden opacity-10">
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-600 rounded-full blur-3xl animate-blob"></div>
+            <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-blue-600 rounded-full blur-3xl animate-blob animation-delay-2000"></div>
+          </div>
+
+          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-20">
+            <div className="max-w-4xl mx-auto text-center space-y-8">
+              {/* Title - Smaller and more elegant */}
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
+                {t.title[0]}
+                <br />
+                <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
                   {t.title[1]}
                 </span>
               </h2>
-            </div>
 
-            {/* Description */}
-            <p className="text-xl sm:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed animate-slide-up">
-              {t.description}
-            </p>
+              {/* Description */}
+              <p className="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto">
+                {t.description}
+              </p>
 
-            {/* CTA Buttons - Modern Style */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8 animate-slide-up animation-delay-200">
-              {/* Primary Button */}
-              <button
-                onClick={handleDownload}
-                className="group relative w-full sm:w-auto px-10 py-5 overflow-hidden rounded-2xl bg-gradient-to-r from-purple-600 to-pink-600 font-bold text-lg shadow-2xl shadow-purple-500/50 transition-all duration-300 hover:scale-105 hover:shadow-purple-500/70"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-pink-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <span className="relative z-10 flex items-center justify-center space-x-2">
-                  <span>📥</span>
-                  <span>{t.cta}</span>
-                </span>
-              </button>
-
-              {/* Secondary Button */}
-              <button
-                onClick={handleDownload}
-                className="group relative w-full sm:w-auto px-10 py-5 overflow-hidden rounded-2xl bg-white/5 backdrop-blur-lg border border-white/10 font-bold text-lg transition-all duration-300 hover:scale-105 hover:bg-white/10 hover:border-white/20"
-              >
-                <span className="flex items-center justify-center space-x-2">
-                  <span>🚀</span>
-                  <span>{t.ctaSecondary}</span>
-                </span>
-              </button>
+              {/* Single CTA Button - Clean and simple */}
+              <div className="pt-4">
+                <button
+                  onClick={handleGetStarted}
+                  className="inline-flex items-center justify-center px-8 py-3.5 text-base font-medium text-white bg-purple-600 rounded-full hover:bg-purple-700 transition-all duration-200 hover:scale-105"
+                >
+                  {t.cta}
+                </button>
+              </div>
             </div>
           </div>
+        </div>
 
-          {/* Feature Card - Modern Glassmorphism */}
-          <div className="mt-24 max-w-4xl mx-auto animate-slide-up animation-delay-400">
-            <div className="group relative overflow-hidden rounded-3xl bg-white/5 backdrop-blur-2xl border border-white/10 p-10 transition-all duration-500 hover:scale-105 hover:bg-white/10 hover:border-purple-500/50">
-              {/* Glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-pink-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
-              <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
-                <div className="flex-shrink-0">
-                  <div className="w-24 h-24 bg-gradient-to-br from-purple-500 to-pink-500 rounded-3xl flex items-center justify-center text-5xl shadow-2xl shadow-purple-500/50">
-                    🎬
-                  </div>
+        {/* Feature Section - Minimal */}
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
+          <div className="max-w-3xl mx-auto">
+            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/[0.07] transition-colors">
+              <div className="flex items-center gap-6">
+                <div className="flex-shrink-0 w-16 h-16 bg-purple-600/20 rounded-xl flex items-center justify-center text-3xl">
+                  🎬
                 </div>
-                <div className="flex-1 text-center md:text-left">
-                  <h3 className="text-3xl font-bold mb-3 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-                    {t.features.movies.title}
-                  </h3>
-                  <p className="text-xl text-gray-400">
-                    {t.features.movies.description}
-                  </p>
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">{t.feature.title}</h3>
+                  <p className="text-sm text-gray-400">{t.feature.description}</p>
                 </div>
               </div>
             </div>
@@ -200,64 +181,41 @@ export default function YangoLanding() {
         </div>
 
         {/* Benefits Section */}
-        <div className="relative bg-gradient-to-b from-transparent via-purple-900/10 to-transparent py-24">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-6xl mx-auto">
-              <h3 className="text-4xl sm:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                {lang === 'en' ? 'Everything you love, in one place' : 'كل ما تحبه في مكان واحد'}
-              </h3>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {Object.values(t.benefits).map((benefit, index) => (
-                  <div
-                    key={index}
-                    className="group relative overflow-hidden rounded-3xl bg-white/5 backdrop-blur-2xl border border-white/10 p-8 transition-all duration-500 hover:scale-105 hover:bg-white/10 hover:border-purple-500/50"
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 to-pink-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <div className="relative z-10 space-y-4">
-                      <div className="text-6xl">
-                        {index === 0 ? '📺' : index === 1 ? '⬇️' : '👨‍👩‍👧‍👦'}
-                      </div>
-                      <h4 className="text-2xl font-bold">{benefit.title}</h4>
-                      <p className="text-gray-400 leading-relaxed">{benefit.description}</p>
-                    </div>
-                  </div>
-                ))}
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
+          <h3 className="text-2xl font-bold text-center mb-12">{t.benefits.title}</h3>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {t.benefits.items.map((item, index) => (
+              <div
+                key={index}
+                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-white/[0.07] transition-colors"
+              >
+                <h4 className="text-base font-semibold mb-3">{item.title}</h4>
+                <p className="text-sm text-gray-400 leading-relaxed">{item.description}</p>
               </div>
+            ))}
+          </div>
 
-              {/* Final CTA */}
-              <div className="text-center mt-16">
-                <button
-                  onClick={handleDownload}
-                  className="group relative px-12 py-6 overflow-hidden rounded-2xl bg-gradient-to-r from-purple-600 to-pink-600 font-bold text-xl shadow-2xl shadow-purple-500/50 transition-all duration-300 hover:scale-110 hover:shadow-purple-500/70"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-pink-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <span className="relative z-10 flex items-center justify-center space-x-2">
-                    <span>🎉</span>
-                    <span>{t.cta}</span>
-                  </span>
-                </button>
-              </div>
-            </div>
+          {/* Final CTA */}
+          <div className="text-center mt-12">
+            <button
+              onClick={handleGetStarted}
+              className="inline-flex items-center justify-center px-8 py-3.5 text-base font-medium text-white bg-purple-600 rounded-full hover:bg-purple-700 transition-all duration-200 hover:scale-105"
+            >
+              {t.cta}
+            </button>
           </div>
         </div>
+
+        {/* Spacer */}
+        <div className="h-20"></div>
       </main>
 
       {/* Footer */}
-      <footer className="relative border-t border-white/10 bg-black/50 backdrop-blur-xl py-12">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center space-y-4">
-            <div className="flex items-center justify-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
-                <span className="text-lg">▶</span>
-              </div>
-              <span className="text-lg font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                YANGO PLAY
-              </span>
-            </div>
-            <p className="text-gray-500 text-sm">
-              © 2025 Yango Play. All rights reserved.
-            </p>
+      <footer className="border-t border-white/10 py-8">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center text-xs text-gray-500">
+            © 2025 Yango Play. All rights reserved.
           </div>
         </div>
       </footer>
@@ -275,72 +233,12 @@ export default function YangoLanding() {
           }
         }
 
-        @keyframes gradient {
-          0%, 100% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-        }
-
-        @keyframes fade-in {
-          from {
-            opacity: 0;
-            transform: translateY(-20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes slide-up {
-          from {
-            opacity: 0;
-            transform: translateY(40px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
         .animate-blob {
           animation: blob 7s infinite;
         }
 
         .animation-delay-2000 {
           animation-delay: 2s;
-        }
-
-        .animation-delay-4000 {
-          animation-delay: 4s;
-        }
-
-        .animate-gradient {
-          background-size: 200% 200%;
-          animation: gradient 3s ease infinite;
-        }
-
-        .animate-fade-in {
-          animation: fade-in 1s ease-out;
-        }
-
-        .animate-slide-up {
-          animation: slide-up 1s ease-out;
-        }
-
-        .animation-delay-200 {
-          animation-delay: 0.2s;
-          opacity: 0;
-          animation-fill-mode: forwards;
-        }
-
-        .animation-delay-400 {
-          animation-delay: 0.4s;
-          opacity: 0;
-          animation-fill-mode: forwards;
         }
       `}</style>
     </div>
