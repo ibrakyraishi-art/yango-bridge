@@ -1,33 +1,20 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
 
 export default function YangoLanding() {
-  const [lang, setLang] = useState<'ar' | 'en'>('ar')
+  const [lang, setLang] = useState<'ar' | 'en'>('en')
 
   const content = {
     en: {
-      title: ['Unlimited Entertainment', 'For Free'],
-      description: 'New movies and series every week, HD quality, smart AI-powered recommendations, and more — free on Yango Play',
-      cta: 'Watch on Yango Play',
-      footer: {
-        help: 'We are always ready to help you',
-        contact: 'Contact Support',
-        copyright: '© 2023–2025 Funtech Loyalty Cards Services LLC, 18+',
-        terms: 'Terms and Conditions'
-      }
+      title: 'UNLIMITED ENTERTAINMENT. ZERO COST.',
+      description: 'New movies and series weekly, crystal-clear quality, and smart AI picks — totally free on Yango Play.',
+      cta: 'Watch on Yango Play'
     },
     ar: {
-      title: ['ترفيه لا ينتهي', 'مجاناً'],
-      description: 'أفلام ومسلسلات جديدة كل اسبوع، جودة عالية، توصيات ذكية مدعومة بالذكاء الاصطناعي، والمزيد — مجاناً على Yango Play',
-      cta: 'شاهد على Yango Play',
-      footer: {
-        help: 'نحن دائماً جاهزون لمساعدتك',
-        contact: 'اتصل بالدعم',
-        copyright: '© 2023–2025 Funtech Loyalty Cards Services LLC, 18+',
-        terms: 'الشروط والأحكام'
-      }
+      title: 'ترفيه لا محدود. بدون تكلفة.',
+      description: 'أفلام ومسلسلات جديدة أسبوعياً، جودة عالية، وتوصيات ذكية بالذكاء الاصطناعي — مجاناً على Yango Play.',
+      cta: 'شاهد على Yango Play'
     }
   }
 
@@ -39,94 +26,143 @@ export default function YangoLanding() {
   const isRTL = lang === 'ar'
 
   return (
-    <div className={`min-h-screen bg-[#0a0a0a] text-white ${isRTL ? 'rtl' : 'ltr'}`}>
-      {/* Header - Simple like Yango Music */}
-      <header className="py-6 px-6 md:px-12">
+    <div className={`min-h-screen bg-gradient-to-br from-[#1a0b2e] via-[#2d1b4e] to-[#1e3a8a] text-white ${isRTL ? 'rtl' : 'ltr'}`}>
+      {/* Header */}
+      <header className="py-5 px-6 md:px-12">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          {/* Logo */}
+          {/* Logo - Full text */}
           <div>
-            <svg width="120" height="32" viewBox="0 0 120 32" fill="none">
-              <text x="0" y="24" fill="white" fontSize="24" fontWeight="bold" fontFamily="system-ui">
-                YANGO PLAY
-              </text>
-            </svg>
+            <h1 className="text-xl md:text-2xl font-black tracking-tight">YANGO PLAY</h1>
           </div>
 
           {/* Language Switcher */}
-          <div className="flex items-center gap-2 text-sm">
-            <button
-              onClick={() => setLang('ar')}
-              className={lang === 'ar' ? 'text-white' : 'text-gray-500 hover:text-white transition-colors'}
-            >
-              العربية
-            </button>
-            <span className="text-gray-600">|</span>
+          <div className="flex items-center gap-3">
             <button
               onClick={() => setLang('en')}
-              className={lang === 'en' ? 'text-white' : 'text-gray-500 hover:text-white transition-colors'}
+              className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${
+                lang === 'en'
+                  ? 'bg-white text-black'
+                  : 'text-white/70 hover:text-white'
+              }`}
             >
               Eng
+            </button>
+            <button
+              onClick={() => setLang('ar')}
+              className={`px-4 py-1.5 text-sm font-medium transition-all ${
+                lang === 'ar'
+                  ? 'bg-white text-black rounded-full'
+                  : 'text-white/70 hover:text-white'
+              }`}
+            >
+              العربية
             </button>
           </div>
         </div>
       </header>
 
-      {/* Hero Section - Two columns like Yango Music */}
+      {/* Hero Section */}
       <main className="px-6 md:px-12 py-12 md:py-20">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left: Text Content */}
-            <div className="space-y-6">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                {t.title[0]}
-                <br />
-                <span className="text-[#8b5cf6]">{t.title[1]}</span>
-              </h1>
+          <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${isRTL ? 'lg:grid-flow-dense' : ''}`}>
+            {/* Text Content - Left for EN, Right for AR */}
+            <div className={`space-y-6 md:space-y-8 ${isRTL ? 'lg:col-start-2 text-right' : 'text-left'}`}>
+              {/* Title - Big and Bold like Yango Music */}
+              <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-tight tracking-tight">
+                {t.title}
+              </h2>
 
-              <p className="text-base md:text-lg text-gray-400 leading-relaxed max-w-lg">
+              {/* Description */}
+              <p className="text-base md:text-lg leading-relaxed text-white/80 max-w-xl">
                 {t.description}
               </p>
 
+              {/* CTA Button - Purple/Pink like original */}
               <button
                 onClick={handleCTA}
-                className="inline-block bg-[#8b5cf6] hover:bg-[#7c3aed] text-white px-8 py-4 rounded-full font-medium text-base transition-colors"
+                className="inline-block bg-gradient-to-r from-[#a855f7] to-[#ec4899] hover:from-[#9333ea] hover:to-[#db2777] text-white px-8 md:px-10 py-4 md:py-5 rounded-full font-semibold text-base md:text-lg transition-all duration-300 shadow-lg shadow-purple-500/50 hover:shadow-purple-500/70 hover:scale-105"
               >
                 {t.cta}
               </button>
             </div>
 
-            {/* Right: Movie Posters */}
-            <div className="relative">
-              <div className="grid grid-cols-2 gap-4">
-                {/* Poster 1 */}
-                <div className="relative overflow-hidden rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-300">
-                  <img
-                    src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=400&h=600&fit=crop"
-                    alt="Movie Poster 1"
-                    className="w-full h-auto object-cover"
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                    <p className="text-sm font-semibold">أفلام Yango</p>
-                    <p className="text-xs text-gray-300">السجادة الأفاضال</p>
+            {/* Visual Content - Right for EN, Left for AR */}
+            <div className={`relative ${isRTL ? 'lg:col-start-1' : ''}`}>
+              {/* Movie Cards with 3D effect */}
+              <div className="relative h-[400px] md:h-[500px]">
+                {/* Card 1 - Left/Back */}
+                <div className="absolute left-0 top-8 w-[45%] h-[380px] md:h-[450px] transform -rotate-12 hover:rotate-0 transition-transform duration-500">
+                  <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-gray-800 to-gray-900">
+                    <img
+                      src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=400&h=600&fit=crop"
+                      alt="Movie"
+                      className="w-full h-full object-cover opacity-80"
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
+                      <p className="text-lg font-bold">أفلام Yango</p>
+                      <p className="text-sm text-white/70">السجادة الأفاضال</p>
+                      <div className="mt-3 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+                        <span className="text-2xl">❤️</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
-                {/* Poster 2 */}
-                <div className="relative overflow-hidden rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-300 mt-8">
-                  <img
-                    src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=400&h=600&fit=crop"
-                    alt="Movie Poster 2"
-                    className="w-full h-auto object-cover"
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                    <p className="text-sm font-semibold">أهل الكهف</p>
-                    <p className="text-xs text-gray-300">Ahl El Kahf</p>
+                {/* Card 2 - Center/Front */}
+                <div className="absolute left-1/2 -translate-x-1/2 top-0 w-[55%] h-[420px] md:h-[480px] z-10 transform hover:scale-105 transition-transform duration-500">
+                  <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-yellow-600 to-orange-600">
+                    <img
+                      src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=400&h=600&fit=crop"
+                      alt="Movie"
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/60"></div>
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                      <div className="w-16 h-16 md:w-20 md:h-20 bg-white/30 backdrop-blur-md rounded-full flex items-center justify-center">
+                        <span className="text-3xl md:text-4xl">❤️</span>
+                      </div>
+                    </div>
+                    <div className="absolute bottom-0 left-0 right-0 p-6">
+                      <p className="text-xl md:text-2xl font-bold">أهل الكهف</p>
+                      <p className="text-sm md:text-base text-white/80">Ahl El Kahf</p>
+                    </div>
                   </div>
                 </div>
+
+                {/* Card 3 - Right/Back */}
+                <div className="absolute right-0 top-12 w-[45%] h-[380px] md:h-[450px] transform rotate-12 hover:rotate-0 transition-transform duration-500">
+                  <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-blue-800 to-blue-900">
+                    <img
+                      src="https://images.unsplash.com/photo-1594908900066-3f47337549d8?w=400&h=600&fit=crop"
+                      alt="Movie"
+                      className="w-full h-full object-cover opacity-80"
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
+                      <p className="text-lg font-bold">مسلسلات Yango</p>
+                      <p className="text-sm text-white/70">Exclusive Series</p>
+                      <div className="mt-3 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+                        <span className="text-2xl">❤️</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Floating accent glow */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-purple-600/20 rounded-full blur-3xl -z-10"></div>
               </div>
 
-              {/* Floating accent */}
-              <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl"></div>
+              {/* Genre Badges - Below cards */}
+              <div className="mt-8 flex flex-wrap gap-3 justify-center lg:justify-start">
+                <div className="px-6 py-3 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium hover:bg-white/20 transition-colors cursor-pointer">
+                  🎬 أفلام عربية
+                </div>
+                <div className="px-6 py-3 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium hover:bg-white/20 transition-colors cursor-pointer">
+                  🎭 مسلسلات
+                </div>
+                <div className="px-6 py-3 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium hover:bg-white/20 transition-colors cursor-pointer">
+                  🌟 حصريات Yango
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -135,65 +171,26 @@ export default function YangoLanding() {
       {/* Spacer */}
       <div className="h-20"></div>
 
-      {/* Footer - Like Yango Music */}
-      <footer className="border-t border-gray-800 py-12 px-6 md:px-12">
+      {/* Footer */}
+      <footer className="border-t border-white/10 py-8 px-6 md:px-12 bg-black/20 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Left: Social & Support */}
-            <div className="space-y-6">
-              {/* Social Icons */}
-              <div className="flex items-center gap-4">
-                <a
-                  href="https://www.facebook.com/yangoplay/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors"
-                >
-                  <span className="text-lg">f</span>
-                </a>
-                <a
-                  href="https://www.instagram.com/yangoplay/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors"
-                >
-                  <span className="text-lg">📷</span>
-                </a>
-                <a
-                  href="https://www.tiktok.com/@yangoplay"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors"
-                >
-                  <span className="text-lg">🎵</span>
-                </a>
-              </div>
-
-              {/* Support */}
-              <div className="space-y-2">
-                <p className="text-sm text-gray-400">{t.footer.help}</p>
-                <a
-                  href="https://play.yango.com/support/ar/contact-us/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-white hover:text-purple-400 transition-colors underline"
-                >
-                  {t.footer.contact}
-                </a>
-              </div>
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            {/* Social */}
+            <div className="flex items-center gap-4">
+              <a href="https://www.facebook.com/yangoplay/" target="_blank" rel="noopener" className="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors">
+                <span>f</span>
+              </a>
+              <a href="https://www.instagram.com/yangoplay/" target="_blank" rel="noopener" className="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors">
+                <span>📷</span>
+              </a>
+              <a href="https://www.tiktok.com/@yangoplay" target="_blank" rel="noopener" className="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors">
+                <span>🎵</span>
+              </a>
             </div>
 
-            {/* Right: Legal */}
-            <div className="space-y-2 text-right">
-              <p className="text-xs text-gray-500">{t.footer.copyright}</p>
-              <a
-                href="https://yango.com/legal/uae_yango_play_conditions/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs text-gray-400 hover:text-white transition-colors underline"
-              >
-                {t.footer.terms}
-              </a>
+            {/* Copyright */}
+            <div className="text-xs text-white/50 text-center">
+              © 2023–2025 Funtech Loyalty Cards Services LLC, 18+
             </div>
           </div>
         </div>
