@@ -4,21 +4,55 @@ import { useState } from 'react'
 
 export default function YangoLanding() {
   const [lang, setLang] = useState<'en' | 'ar'>('en')
+  const [selectedVideo, setSelectedVideo] = useState<string | null>(null)
 
   const content = {
     en: {
       title: ['Unlimited', 'Entertainment'],
       description: 'New albums weekly, crystal-clear sound, and smart AI picks on Yango Play.',
       cta: 'Watch on Yango Play',
-      featured: 'Featured Content'
+      featured: 'Featured Content',
+      trailers: 'Watch Trailers'
     },
     ar: {
       title: ['ترفيه لا ينتهي', ''],
       description: 'ألبومات جديدة كل اسبوع، صوت واضح وعالي، توصيات ذكية مدعومة بالذكاء الاصطناعي، والمزيد على Yango Play',
       cta: 'شاهد على Yango Play',
-      featured: 'المحتوى المميز'
+      featured: 'المحتوى المميز',
+      trailers: 'شاهد الإعلانات'
     }
   }
+
+  const videos = [
+    {
+      title: 'أهل الكهف',
+      subtitle: 'Ahl El Kahf - Official Trailer',
+      thumbnail: 'https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=800&h=450&fit=crop&q=80',
+      videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ', // Замени на свое видео
+      duration: '2:34'
+    },
+    {
+      title: 'السجادة الأفاضال',
+      subtitle: 'Comedy Series Trailer',
+      thumbnail: 'https://images.unsplash.com/photo-1574267432644-f2b45c3510ad?w=800&h=450&fit=crop&q=80',
+      videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+      duration: '1:45'
+    },
+    {
+      title: 'فيما يرا يعني!؟',
+      subtitle: 'Family Comedy',
+      thumbnail: 'https://images.unsplash.com/photo-1511895426328-dc8714191300?w=800&h=450&fit=crop&q=80',
+      videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+      duration: '3:12'
+    },
+    {
+      title: 'Exclusive Content',
+      subtitle: 'Only on Yango Play',
+      thumbnail: 'https://images.unsplash.com/photo-1594908900066-3f47337549d8?w=800&h=450&fit=crop&q=80',
+      videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+      duration: '2:05'
+    }
+  ]
 
   const movies = [
     {
@@ -229,6 +263,89 @@ export default function YangoLanding() {
           </div>
         </div>
       </section>
+
+      {/* Video Trailers Section */}
+      <section className="py-12 md:py-16 px-6 md:px-12 bg-black/20">
+        <div className="max-w-7xl mx-auto">
+          <h3 className="text-2xl md:text-3xl font-black mb-8" style={{ fontFamily: 'Arial Black, Impact, sans-serif' }}>{t.trailers}</h3>
+          
+          {/* Video Cards with Horizontal Scroll */}
+          <div className="relative">
+            <div className="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide">
+              {videos.map((video, index) => (
+                <div
+                  key={index}
+                  className="flex-shrink-0 w-80 md:w-96 snap-start group cursor-pointer"
+                  onClick={() => setSelectedVideo(video.videoUrl)}
+                >
+                  <div className="relative h-52 md:h-56 rounded-2xl overflow-hidden shadow-xl transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/50">
+                    {/* Thumbnail */}
+                    <img
+                      src={video.thumbnail}
+                      alt={video.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+
+                    {/* Play Button */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-purple-600/80">
+                        <div className="w-0 h-0 border-t-8 border-t-transparent border-l-12 border-l-white border-b-8 border-b-transparent ml-1"></div>
+                      </div>
+                    </div>
+
+                    {/* Duration Badge */}
+                    <div className="absolute top-4 right-4 bg-black/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold">
+                      {video.duration}
+                    </div>
+
+                    {/* Title Overlay */}
+                    <div className="absolute bottom-0 left-0 right-0 p-6">
+                      <p className="text-xl font-bold mb-1">{video.title}</p>
+                      <p className="text-sm text-white/80">{video.subtitle}</p>
+                    </div>
+
+                    {/* Hover Effect Border */}
+                    <div className="absolute inset-0 border-2 border-purple-500 opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Gradient Fade */}
+            <div className="absolute top-0 left-0 w-20 h-full bg-gradient-to-r from-[#0f0520] to-transparent pointer-events-none"></div>
+            <div className="absolute top-0 right-0 w-20 h-full bg-gradient-to-l from-[#0f0520] to-transparent pointer-events-none"></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Video Modal */}
+      {selectedVideo && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4"
+          onClick={() => setSelectedVideo(null)}
+        >
+          <div className="relative w-full max-w-5xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl" onClick={(e) => e.stopPropagation()}>
+            {/* Close Button */}
+            <button
+              onClick={() => setSelectedVideo(null)}
+              className="absolute top-4 right-4 z-10 w-10 h-10 bg-white/20 hover:bg-white/30 backdrop-blur-md rounded-full flex items-center justify-center transition-colors"
+            >
+              <span className="text-white text-2xl font-bold">×</span>
+            </button>
+
+            {/* Video Player */}
+            <iframe
+              src={selectedVideo}
+              className="w-full h-full"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </div>
+      )}
 
       <div className="h-12"></div>
 
