@@ -3,6 +3,9 @@
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 
+// Отключаем статическую генерацию для этой страницы
+export const dynamic = 'force-dynamic'
+
 export default function YangoBridgePage() {
   const searchParams = useSearchParams()
   const [appsflyerLink, setAppsflyerLink] = useState('')
