@@ -1,10 +1,45 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useSearchParams } from 'next/navigation'
 
 export default function YangoLanding() {
+  const searchParams = useSearchParams()
   const [lang, setLang] = useState<'en' | 'ar'>('en')
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null)
+  const [oneLinkUrl, setOneLinkUrl] = useState('https://play.yango.com')
+
+  useEffect(() => {
+    // Захватываем UTM параметры из URL
+    const utmSource = searchParams.get('utm_source') || ''
+    const utmMedium = searchParams.get('utm_medium') || ''
+    const utmCampaign = searchParams.get('utm_campaign') || ''
+    const utmTerm = searchParams.get('utm_term') || ''
+    const utmContent = searchParams.get('utm_content') || ''
+    const gclid = searchParams.get('gclid') || ''
+
+    // Если есть UTM параметры - формируем AppsFlyer OneLink
+    if (utmSource || utmCampaign || gclid) {
+      // ЗАМЕНИ на свою реальную OneLink ссылку из AppsFlyer Dashboard
+      const oneLinkBase = 'https://yango.onelink.me/XXXXX'
+      
+      const params = new URLSearchParams()
+      
+      // Преобразуем UTM → AppsFlyer параметры
+      if (utmSource) params.append('pid', utmSource) // Media source
+      if (utmCampaign) params.append('c', utmCampaign) // Campaign
+      if (utmTerm) params.append('af_keywords', utmTerm) // Keywords
+      if (utmContent) params.append('af_adset', utmContent) // AdGroup
+      if (gclid) params.append('af_ad', gclid) // Google Click ID
+      if (utmMedium) params.append('af_channel', utmMedium) // Channel
+      
+      const finalUrl = `${oneLinkBase}?${params.toString()}`
+      setOneLinkUrl(finalUrl)
+      
+      console.log('📊 UTM Parameters captured:', { utmSource, utmMedium, utmCampaign, utmTerm, utmContent, gclid })
+      console.log('🔗 Generated OneLink:', finalUrl)
+    }
+  }, [searchParams])
 
   const content = {
     en: {
@@ -118,7 +153,7 @@ export default function YangoLanding() {
   ]
 
   const handleCTA = () => {
-    window.location.href = 'https://play.yango.com'
+    window.location.href = oneLinkUrl
   }
 
   const t = content[lang]
