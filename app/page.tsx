@@ -101,7 +101,7 @@ export default function YangoLanding() {
   const isRTL = lang === 'ar'
 
   return (
-    <div className={`min-h-screen bg-gradient-to-br from-[#0f0520] via-[#1a0b3e] to-[#0a1435] text-white ${isRTL ? 'rtl' : 'ltr'}`}>
+    <div className={`min-h-screen bg-gradient-to-b from-[#0a0014] via-[#1a0b3e] to-[#2d4a8a] text-white ${isRTL ? 'rtl' : 'ltr'}`}>
       {/* Header */}
       <header className="py-5 px-6 md:px-12">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
