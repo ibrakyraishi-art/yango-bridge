@@ -12,14 +12,38 @@ export default function YangoLanding() {
       description: 'Smart recommendations — just press play.',
       cta: 'Watch Yango Play',
       featured: 'Featured Content',
-      trailers: 'Watch Trailers'
+      trailers: 'Watch Trailers',
+      genres: {
+        drama: 'Drama',
+        comedy: 'Comedy',
+        arabic: 'Arabic Cinema',
+        exclusive: 'Exclusive'
+      },
+      footer: {
+        help: 'We are always ready to help you',
+        contact: 'Contact support',
+        copyright: '© 2023–2025 Funtech Loyalty Cards Services LLC, 18+',
+        terms: 'Terms and conditions'
+      }
     },
     ar: {
       title: ['مُختار لك.', 'جاهز للمشاهدة.'],
       description: 'توصيات ذكية — فقط اضغط play',
       cta: 'شاهد على Yango Play',
       featured: 'المحتوى المميز',
-      trailers: 'شاهد الإعلانات'
+      trailers: 'شاهد الإعلانات',
+      genres: {
+        drama: 'دراما',
+        comedy: 'كوميديا',
+        arabic: 'سينما عربية',
+        exclusive: 'حصري'
+      },
+      footer: {
+        help: 'نحن دائماً جاهزون لمساعدتك',
+        contact: 'اتصل بالدعم',
+        copyright: '© 2023–2025 Funtech Loyalty Cards Services LLC, 18+',
+        terms: 'الشروط والأحكام'
+      }
     }
   }
 
@@ -210,10 +234,10 @@ export default function YangoLanding() {
 
               {/* Genre Tags */}
               <div className="mt-8 flex flex-wrap gap-3 justify-center lg:justify-start">
-                <div className="px-5 py-2.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium hover:bg-white/20 transition-colors cursor-pointer">🎭 Drama</div>
-                <div className="px-5 py-2.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium hover:bg-white/20 transition-colors cursor-pointer">😂 Comedy</div>
-                <div className="px-5 py-2.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium hover:bg-white/20 transition-colors cursor-pointer">🎬 Arabic Cinema</div>
-                <div className="px-5 py-2.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium hover:bg-white/20 transition-colors cursor-pointer">⭐ Exclusive</div>
+                <div className="px-5 py-2.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium hover:bg-white/20 transition-colors cursor-pointer">🎭 {t.genres.drama}</div>
+                <div className="px-5 py-2.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium hover:bg-white/20 transition-colors cursor-pointer">😂 {t.genres.comedy}</div>
+                <div className="px-5 py-2.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium hover:bg-white/20 transition-colors cursor-pointer">🎬 {t.genres.arabic}</div>
+                <div className="px-5 py-2.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium hover:bg-white/20 transition-colors cursor-pointer">⭐ {t.genres.exclusive}</div>
               </div>
             </div>
           </div>
@@ -361,13 +385,13 @@ export default function YangoLanding() {
               </div>
               <div className="hidden md:block w-px h-6 bg-white/20"></div>
               <div className="text-center md:text-left">
-                <p className="text-xs text-white/50 mb-1">We are always ready to help you</p>
-                <a href="https://play.yango.com/support/en/contact-us/" target="_blank" rel="noopener" className="text-sm text-white hover:text-purple-400 transition-colors underline">Contact support</a>
+                <p className="text-xs text-white/50 mb-1">{t.footer.help}</p>
+                <a href="https://play.yango.com/support/en/contact-us/" target="_blank" rel="noopener" className="text-sm text-white hover:text-purple-400 transition-colors underline">{t.footer.contact}</a>
               </div>
             </div>
             <div className="text-center md:text-right space-y-1">
-              <p className="text-xs text-white/40">© 2023–2025 Funtech Loyalty Cards Services LLC, 18+</p>
-              <a href="https://yango.com/legal/uae_yango_play_conditions/" target="_blank" rel="noopener" className="text-xs text-white/40 hover:text-white/60 transition-colors underline">Terms and conditions</a>
+              <p className="text-xs text-white/40">{t.footer.copyright}</p>
+              <a href="https://yango.com/legal/uae_yango_play_conditions/" target="_blank" rel="noopener" className="text-xs text-white/40 hover:text-white/60 transition-colors underline">{t.footer.terms}</a>
             </div>
           </div>
         </div>
