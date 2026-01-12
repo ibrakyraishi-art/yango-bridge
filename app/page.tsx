@@ -1,12 +1,10 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 
-// Отключаем статическую генерацию для этой страницы
-export const dynamic = 'force-dynamic'
-
-export default function YangoBridgePage() {
+// Компонент с логикой UTM → AppsFlyer
+function BridgeContent() {
   const searchParams = useSearchParams()
   const [appsflyerLink, setAppsflyerLink] = useState('')
 
@@ -129,5 +127,18 @@ export default function YangoBridgePage() {
         )}
       </div>
     </div>
+  )
+}
+
+// Главный компонент с Suspense boundary
+export default function YangoBridgePage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 flex items-center justify-center">
+        <div className="text-white text-2xl">Загрузка...</div>
+      </div>
+    }>
+      <BridgeContent />
+    </Suspense>
   )
 }
