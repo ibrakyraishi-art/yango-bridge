@@ -192,7 +192,7 @@ export default function YangoLanding() {
   return (
     <Suspense fallback={
       <div className="min-h-screen bg-gradient-to-br from-[#0a1633] via-[#1a2855] to-[#0a1633] flex items-center justify-center">
-        <div className="text-white text-2xl font-bold">Loading...</div>
+        <div className="text-white text-2xl font-bold animate-pulse">Loading Yango Play...</div>
       </div>
     }>
       <YangoContent />
