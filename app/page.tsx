@@ -1,9 +1,9 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 
-export default function YangoLanding() {
+function YangoContent() {
   const searchParams = useSearchParams()
   const [oneLinkUrl, setOneLinkUrl] = useState('https://play.yango.com')
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -185,5 +185,17 @@ export default function YangoLanding() {
       </main>
 
     </div>
+  )
+}
+
+export default function YangoLanding() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gradient-to-br from-[#0a1633] via-[#1a2855] to-[#0a1633] flex items-center justify-center">
+        <div className="text-white text-2xl font-bold">Loading...</div>
+      </div>
+    }>
+      <YangoContent />
+    </Suspense>
   )
 }
